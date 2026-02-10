@@ -18,7 +18,7 @@ This lab provides a deeper understanding of methods and classes in Java. You wil
 - Understand argument passing mechanisms
 - Implement recursive methods
 - Apply access control modifiers
-- Work with static members and blocks
+- Work with static members
 - Use the final keyword appropriately
 - Manipulate strings effectively
 - Use command-line arguments and varargs
@@ -328,38 +328,7 @@ int val = MathUtils.getValue();
 
 ---
 
-### 10. Understanding Static Code Block
-
-**What is a Static Block?**
-A static block is executed exactly once when the class is first loaded into memory, before any objects are created.
-
-**How to use:**
-```java
-public class Example {
-    static int value;
-    
-    static {
-        value = 100;
-        System.out.println("Static block executed");
-    }
-}
-```
-
-**Example:**
-```java
-public class DatabaseConnection {
-    private static String connectionString;
-    
-    static {
-        connectionString = "jdbc:mysql://localhost:3306/mydb";
-        System.out.println("Database connection initialized");
-    }
-}
-```
-
----
-
-### 11. Introducing Keyword Final
+### 10. Introducing Keyword Final
 
 **What is the Final Keyword?**
 The `final` keyword can be used with variables, methods, and classes to prevent modification or overriding.
@@ -397,7 +366,7 @@ public final void importantMethod() {
 
 ---
 
-### 12. Arrays Revisiting
+### 11. Arrays Revisiting
 
 **What are Arrays?**
 Arrays are fixed-size collections of elements of the same type. The length is determined at creation time.
@@ -421,7 +390,7 @@ for (int i = 0; i < numbers.length; i++) {
 
 ---
 
-### 13. String Class
+### 12. String Class
 
 **What is the String Class?**
 String is a class in `java.lang` package. String objects are immutable. `StringBuffer` and `StringBuilder` are mutable alternatives.
@@ -467,7 +436,7 @@ System.out.println(s1 == s3);        // true (same reference due to string pool)
 
 ---
 
-### 14. Command-Line Arguments
+### 13. Command-Line Arguments
 
 **What are Command-Line Arguments?**
 Command-line arguments are passed to the program when it is executed. They are received as an array of strings in the `main` method.
@@ -498,7 +467,7 @@ java CommandLineExample arg1 arg2 arg3
 
 ---
 
-### 15. Varargs: Variable Length Arguments
+### 14. Varargs: Variable Length Arguments
 
 **What are Varargs?**
 Varargs (variable-length arguments) allow methods to accept a variable number of arguments. Introduced in JDK 5.
@@ -615,8 +584,7 @@ public class Main {
 **Requirements:**
 1. Add a static variable `operationCount` to count total operations performed
 2. Add a static method `getOperationCount()` that returns the operation count
-3. Add a static block that initializes operationCount to 0 and prints a message
-4. Modify all calculation methods to increment `operationCount`
+3. Modify all calculation methods to increment `operationCount`
 5. Add a private method `validateInput(double value)` that checks if value is valid (not NaN, not Infinity)
 6. Use this validation in your methods
 7. Add a protected method `getInternalState()` that returns a String representation of internal state
