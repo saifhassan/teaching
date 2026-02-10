@@ -406,11 +406,6 @@ Arrays are fixed-size collections of elements of the same type. The length is de
 ```java
 int[] arr = new int[5];  // Fixed size
 int length = arr.length;  // Length property
-
-// Dynamic array using ArrayList
-ArrayList<Integer> list = new ArrayList<>();
-list.add(10);
-list.add(20);
 ```
 
 **Example:**
