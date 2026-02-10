@@ -742,23 +742,7 @@ Create a `Student` class with the following requirements:
 6. A method `displayInfo()` that prints all student information
 7. Use `this` keyword appropriately in constructors and setters
 
-**Create a Main class to test:**
-```java
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student();
-        Student s2 = new Student("John Doe", 12345, 3.75);
-        
-        s1.displayInfo();
-        s2.displayInfo();
-        
-        s1.setName("Jane Smith");
-        s1.setStudentId(12346);
-        s1.setGpa(3.90);
-        s1.displayInfo();
-    }
-}
-```
+**Note:** Create a `Main` class with a `main` method to test your `Student` class. Test with both default and parameterized constructors, and demonstrate getter/setter methods.
 
 **Expected Output:**
 ```
@@ -796,22 +780,7 @@ GPA: 3.90
 4. Method `updateGPA(double newGPA)` that updates the GPA and validates it's between 0.0 and 4.0 using if/else
 5. Method `getStatus()` that returns "Excellent", "Good", "Average", or "Needs Improvement" based on GPA using if/else
 
-**Update your Main class:**
-```java
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student("John Doe", 12345, 3.75);
-        Student s2 = new Student("Jane Smith", 12346, 2.50);
-        
-        System.out.println("Grade: " + s1.calculateGrade());
-        System.out.println("Is Honor Student: " + s1.isHonorStudent());
-        System.out.println("Status: " + s1.getStatus());
-        
-        s2.updateGPA(3.90);
-        s2.displayInfo();
-    }
-}
-```
+**Note:** Update your `Main` class to test all the new methods. Test with different GPA values to verify all conditions work correctly.
 
 **Expected Output:**
 ```
@@ -839,25 +808,7 @@ GPA: 3.90
    - Use type conversion to convert int and double to String
 5. Method `displayFormattedInfo()` that displays information using formatted strings
 
-**Update your Main class:**
-```java
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student("John Doe", 12345, 3.75);
-        
-        System.out.println("Formatted Name: " + s1.formatName());
-        System.out.println("Initials: " + s1.getInitials());
-        System.out.println("Valid Name: " + s1.validateName());
-        
-        String[] info = s1.getStudentInfoArray();
-        for (String data : info) {
-            System.out.println(data);
-        }
-        
-        s1.displayFormattedInfo();
-    }
-}
-```
+**Note:** Update your `Main` class to test all string handling methods. Use for-each loop to iterate through the array returned by `getStudentInfoArray()`.
 
 **Expected Output:**
 ```
@@ -891,32 +842,7 @@ Name: John Doe | ID: 12345 | GPA: 3.75
    - Use switch or if/else to assign grades
 5. Method `modifyArray(int[] numbers)` that doubles all values in the array (pass array as parameter)
 
-**Update your Main class:**
-```java
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student("John Doe", 12345, 3.75);
-        
-        double[] gpas = {3.5, 2.8, 4.0, 3.9, 0.5};
-        double highest = s1.processGPAs(gpas);
-        System.out.println("Highest GPA: " + highest);
-        
-        double[] grades = {85.0, 90.0, 78.0, 92.0};
-        double avg = s1.calculateAverage(grades);
-        System.out.println("Average: " + avg);
-        
-        char[] gradeList = {'A', 'B', 'C', 'A', 'B'};
-        boolean found = s1.findGradeInArray(gradeList, 'A');
-        System.out.println("Grade A found: " + found);
-        
-        int[] nums = {1, 2, 3, 4, 5};
-        s1.modifyArray(nums);
-        for (int num : nums) {
-            System.out.print(num + " ");
-        }
-    }
-}
-```
+**Note:** Update your `Main` class to test all array processing methods. Create test arrays and verify that `modifyArray()` actually modifies the original array.
 
 **Expected Output:**
 ```
@@ -947,30 +873,7 @@ Grade A found: true
 5. Method `calculateRowAverage(int[][] grades, int row)` that returns average of a specific row
 6. Method `calculateColumnAverage(int[][] grades, int col)` that returns average of a specific column
 
-**Update your Main class:**
-```java
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student("John Doe", 12345, 3.75);
-        
-        // Method overloading
-        System.out.println("Sum (int): " + s1.calculateTotal(5, 3));
-        System.out.println("Sum (double): " + s1.calculateTotal(5.5, 3.2));
-        System.out.println("Sum (3 ints): " + s1.calculateTotal(5, 3, 2));
-        
-        // 2D Array
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        int max = s1.process2DArray(matrix);
-        System.out.println("Max value: " + max);
-        
-        int[][] grades = s1.getStudentGrades2D();
-        s1.displayGradeTable(grades);
-        
-        double rowAvg = s1.calculateRowAverage(grades, 0);
-        System.out.println("Row 0 average: " + rowAvg);
-    }
-}
-```
+**Note:** Update your `Main` class to test method overloading with different parameter types and counts. Test 2D array methods with sample data.
 
 **Expected Output:**
 ```
@@ -1012,47 +915,7 @@ Row 0 average: 88.75
    - Returns a formatted String with all student information
    - Uses string handling, arrays, and all control structures
 
-**Update your Main class to demonstrate everything:**
-```java
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student("John Doe", 12345, 3.75);
-        Student s2 = new Student("Jane Smith", 12346, 3.90);
-        
-        // Display complete information
-        System.out.println("=== Student 1 ===");
-        System.out.println(s1.completeStudentReport());
-        
-        System.out.println("\n=== Student 2 ===");
-        System.out.println(s2.completeStudentReport());
-        
-        // Demonstrate uneven arrays
-        int[][] uneven = s1.createUnevenArray();
-        s1.displayUnevenArray(uneven);
-        
-        // Demonstrate type conversion
-        String[] conversions = s1.convertTypes();
-        for (String conv : conversions) {
-            System.out.println(conv);
-        }
-        
-        // Demonstrate type promotion
-        String promotion = s1.demonstrateTypePromotion();
-        System.out.println(promotion);
-        
-        // Array operations
-        double[] gpas = {3.5, 3.8, 2.9, 3.95};
-        double highest = s1.processGPAs(gpas);
-        System.out.println("Highest GPA from array: " + highest);
-        
-        // Method overloading demonstration
-        System.out.println("Overloaded methods:");
-        System.out.println(s1.calculateTotal(10, 20));
-        System.out.println(s1.calculateTotal(10.5, 20.5));
-        System.out.println(s1.calculateTotal(10, 20, 30));
-    }
-}
-```
+**Note:** Update your `Main` class to demonstrate all features. Create multiple Student objects, test all methods from previous tasks, and verify type conversion and promotion work correctly.
 
 **Expected Output:**
 ```
