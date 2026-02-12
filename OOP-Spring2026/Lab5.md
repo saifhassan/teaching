@@ -10,13 +10,12 @@
 
 ## Introduction
 
-This lab provides a deeper understanding of methods and classes in Java. You will learn about method overloading, constructors, object parameters, recursion, access modifiers, static members, final keyword, string manipulation, and variable-length arguments. Each task builds upon the previous one, creating a comprehensive understanding of advanced class and method concepts.
+This lab provides a deeper understanding of methods and classes in Java. You will learn about method overloading, constructors, object parameters, access modifiers, static members, final keyword, string manipulation, and variable-length arguments. Each task builds upon the previous one, creating a comprehensive understanding of advanced class and method concepts.
 
 **Objectives:**
 - Understand method and constructor overloading
 - Learn about object parameters and return types
 - Understand argument passing mechanisms
-- Implement recursive methods
 - Apply access control modifiers
 - Work with static members
 - Use the final keyword appropriately
@@ -211,43 +210,7 @@ Student s2 = factory.createDefaultStudent();
 
 ---
 
-### 6. Recursion
-
-**What is Recursion?**
-Recursion is a programming technique where a method calls itself to solve a problem. It requires a base case to terminate the recursion.
-
-**How to use:**
-```java
-public int factorial(int n) {
-    if (n <= 1) {  // Base case
-        return 1;
-    }
-    return n * factorial(n - 1);  // Recursive call
-}
-```
-
-**Example:**
-```java
-// Factorial example
-public int factorial(int n) {
-    if (n == 0 || n == 1) {
-        return 1;
-    }
-    return n * factorial(n - 1);
-}
-
-// Fibonacci example
-public int fibonacci(int n) {
-    if (n <= 1) {
-        return n;
-    }
-    return fibonacci(n - 1) + fibonacci(n - 2);
-}
-```
-
----
-
-### 7. Access Controls in Java
+### 6. Access Controls in Java
 
 **What are Access Modifiers?**
 Access modifiers control the visibility and accessibility of classes, methods, and variables.
@@ -270,7 +233,7 @@ public class Example {
 
 ---
 
-### 8. Understanding Static Member Variables
+### 7. Understanding Static Member Variables
 
 **What are Static Variables?**
 Static variables belong to the class, not to any specific instance. There is only one copy shared by all objects of the class.
@@ -300,7 +263,7 @@ System.out.println(Counter.getCount());  // Prints 3
 
 ---
 
-### 9. Understanding Static Member Methods
+### 8. Understanding Static Member Methods
 
 **What are Static Methods?**
 Static methods belong to the class and can be called without creating an object. They can only access static members and cannot use `this` or `super`.
@@ -328,7 +291,7 @@ int val = MathUtils.getValue();
 
 ---
 
-### 10. Introducing Keyword Final
+### 9. Introducing Keyword Final
 
 **What is the Final Keyword?**
 The `final` keyword can be used with variables, methods, and classes to prevent modification or overriding.
@@ -366,7 +329,7 @@ public final void importantMethod() {
 
 ---
 
-### 11. Arrays Revisiting
+### 10. Arrays Revisiting
 
 **What are Arrays?**
 Arrays are fixed-size collections of elements of the same type. The length is determined at creation time.
@@ -390,7 +353,7 @@ for (int i = 0; i < numbers.length; i++) {
 
 ---
 
-### 12. String Class
+### 11. String Class
 
 **What is the String Class?**
 String is a class in `java.lang` package. String objects are immutable. `StringBuffer` and `StringBuilder` are mutable alternatives.
@@ -436,7 +399,7 @@ System.out.println(s1 == s3);        // true (same reference due to string pool)
 
 ---
 
-### 13. Command-Line Arguments
+### 12. Command-Line Arguments
 
 **What are Command-Line Arguments?**
 Command-line arguments are passed to the program when it is executed. They are received as an array of strings in the `main` method.
@@ -467,7 +430,7 @@ java CommandLineExample arg1 arg2 arg3
 
 ---
 
-### 14. Varargs: Variable Length Arguments
+### 13. Varargs: Variable Length Arguments
 
 **What are Varargs?**
 Varargs (variable-length arguments) allow methods to accept a variable number of arguments. Introduced in JDK 5.
@@ -562,24 +525,9 @@ public class Main {
 
 ---
 
-### Task 3: Add Recursive Methods
+### Task 3: Add Static Members and Access Control
 
-**Modify your Calculator class from Task 2** by adding the following recursive methods:
-
-**Requirements:**
-1. Method `factorial(int n)` that calculates factorial recursively
-2. Method `power(int base, int exponent)` that calculates base^exponent recursively
-3. Method `sumOfDigits(int num)` that calculates sum of digits recursively
-4. Method `fibonacci(int n)` that returns the nth Fibonacci number recursively
-5. All methods should have proper base cases
-
-**Update your Main class to test recursive methods.**
-
----
-
-### Task 4: Add Static Members and Access Control
-
-**Modify your Calculator class from Task 3** by adding the following:
+**Modify your Calculator class from Task 2** by adding the following:
 
 **Requirements:**
 1. Add a static variable `operationCount` to count total operations performed
@@ -594,9 +542,9 @@ public class Main {
 
 ---
 
-### Task 5: Add Final Members and String Operations
+### Task 4: Add Final Members and String Operations
 
-**Modify your Calculator class from Task 4** by adding the following:
+**Modify your Calculator class from Task 3** by adding the following:
 
 **Requirements:**
 1. Add a final static variable `MAX_RESULT` with value 1000000.0
@@ -611,9 +559,9 @@ public class Main {
 
 ---
 
-### Task 6: Complete Integration and Report Generation
+### Task 5: Complete Integration and Report Generation
 
-**Modify your Calculator class from Task 5** by adding the following:
+**Modify your Calculator class from Task 4** by adding the following:
 
 **Requirements:**
 1. Add method `completeCalculatorReport()` that:
@@ -643,9 +591,9 @@ public class Main {
 
 ---
 
-### Task 7: Add Varargs and Command-Line Arguments
+### Task 6: Add Varargs and Command-Line Arguments
 
-**Modify your Calculator class from Task 6** by adding the following:
+**Modify your Calculator class from Task 5** by adding the following:
 
 **Requirements:**
 1. Add method `addMultiple(int... numbers)` that adds multiple integers using varargs
@@ -677,9 +625,9 @@ public class Main {
 
 ## Submission Guidelines
 
-1. Complete all progressive tasks (Task 1-7)
+1. Complete all progressive tasks (Task 1-6)
 2. Ensure all code compiles without errors
-3. Include comments explaining complex logic, especially recursive methods
+3. Include comments explaining complex logic
 4. Test all methods with different inputs
 5. Test command-line arguments with various inputs
 6. Submit one word file on elearning portal as discussed format
@@ -694,7 +642,6 @@ public class Main {
   - Each task MODIFIES the same class by adding new methods - do not create new classes
 - Each task builds upon the previous one, so make sure Task 1 works correctly before moving to Task 2
 - When adding new methods in later tasks, keep all previous methods from earlier tasks
-- For recursion, always ensure you have a proper base case to avoid infinite recursion
 - Static members belong to the class, not instances
 - Final variables cannot be reassigned after initialization
 - Varargs must be the last parameter and there can be only one per method
