@@ -2,8 +2,9 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Progressive Tasks](#progressive-tasks)
-3. [Submission Guidelines](#submission-guidelines)
+2. [Key Concepts and Examples](#key-concepts-and-examples)
+3. [Progressive Tasks](#progressive-tasks)
+4. [Submission Guidelines](#submission-guidelines)
 
 ---
 
@@ -25,6 +26,410 @@ This lab focuses on problem-solving using methods through real-world scenarios. 
 - Understanding of access modifiers
 - Familiarity with control structures (if/else, loops)
 - Understanding of arrays and strings
+
+---
+
+## Key Concepts and Examples
+
+This section provides examples of key concepts you'll use in the lab tasks. Review these before starting the tasks.
+
+### 1. String Arrays as Attributes
+
+**What are String Arrays as Attributes?**
+String arrays can be used as class attributes to store multiple related string values.
+
+**How to use:**
+```java
+public class Student {
+    private String[] subjectNames;  // Array of subject names
+    
+    public Student(String[] subjects) {
+        this.subjectNames = subjects;
+    }
+    
+    public void displaySubjects() {
+        for (String subject : subjectNames) {
+            System.out.println(subject);
+        }
+    }
+}
+```
+
+**Example:**
+```java
+String[] subjects = {"Math", "Science", "English"};
+Student student = new Student(subjects);
+student.displaySubjects();
+```
+
+---
+
+### 2. Two-Dimensional Arrays (2D Arrays)
+
+**What are 2D Arrays?**
+Two-dimensional arrays are arrays of arrays, useful for storing tabular data like grades for multiple subjects.
+
+**How to use:**
+```java
+// Declaration
+double[][] grades = new double[3][5];  // 3 subjects, 5 grades each
+
+// Or initialize directly
+double[][] grades = {
+    {85.0, 90.0, 88.0, 92.0, 87.0},  // Math grades
+    {78.0, 82.0, 80.0, 85.0, 79.0},  // Science grades
+    {92.0, 95.0, 90.0, 93.0, 91.0}   // English grades
+};
+```
+
+**Example:**
+```java
+public class GradeManager {
+    private String[] subjectNames = {"Math", "Science", "English"};
+    private double[][] subjectGrades = new double[3][10];  // 3 subjects, max 10 grades each
+    
+    public void addGrade(int subjectIndex, double grade) {
+        // Find first empty slot in the subject's grade array
+        for (int i = 0; i < subjectGrades[subjectIndex].length; i++) {
+            if (subjectGrades[subjectIndex][i] == 0.0) {
+                subjectGrades[subjectIndex][i] = grade;
+                break;
+            }
+        }
+    }
+    
+    public double getSubjectAverage(int subjectIndex) {
+        double sum = 0;
+        int count = 0;
+        for (int i = 0; i < subjectGrades[subjectIndex].length; i++) {
+            if (subjectGrades[subjectIndex][i] != 0.0) {
+                sum += subjectGrades[subjectIndex][i];
+                count++;
+            }
+        }
+        return count > 0 ? sum / count : 0.0;
+    }
+}
+```
+
+---
+
+### 3. Circular Buffer Pattern
+
+**What is a Circular Buffer?**
+A circular buffer is used to store a fixed number of items, overwriting the oldest when full. Useful for transaction history or temperature logs.
+
+**How to use:**
+```java
+public class History {
+    private String[] history = new String[10];
+    private int count = 0;
+    
+    public void addRecord(String record) {
+        int index = count % history.length;  // Circular index
+        history[index] = record;
+        count++;
+    }
+    
+    public String[] getHistory() {
+        // Return array with actual records
+        int size = Math.min(count, history.length);
+        String[] result = new String[size];
+        int start = count > history.length ? count % history.length : 0;
+        
+        for (int i = 0; i < size; i++) {
+            result[i] = history[(start + i) % history.length];
+        }
+        return result;
+    }
+}
+```
+
+**Example:**
+```java
+History history = new History();
+for (int i = 1; i <= 15; i++) {
+    history.addRecord("Transaction " + i);
+}
+// Only last 10 transactions are kept
+```
+
+---
+
+### 4. Object Arrays
+
+**What are Object Arrays?**
+Arrays can store objects, allowing you to manage multiple instances of a class.
+
+**How to use:**
+```java
+public class LibraryManager {
+    private Library[] libraries = new Library[10];
+    private int count = 0;
+    
+    public void addLibrary(Library lib) {
+        if (count < libraries.length) {
+            libraries[count] = lib;
+            count++;
+        }
+    }
+    
+    public Library[] getLibraries() {
+        Library[] result = new Library[count];
+        for (int i = 0; i < count; i++) {
+            result[i] = libraries[i];
+        }
+        return result;
+    }
+}
+```
+
+**Example:**
+```java
+LibraryManager manager = new LibraryManager();
+manager.addLibrary(new Library("Book1", "B001"));
+manager.addLibrary(new Library("Book2", "B002"));
+Library[] allLibraries = manager.getLibraries();
+```
+
+---
+
+### 5. Method Overloading with Arrays
+
+**What is Method Overloading with Arrays?**
+You can create multiple versions of a method - one that takes a single value and another that takes an array.
+
+**How to use:**
+```java
+public class TemperatureMonitor {
+    public void recordTemperature(double temp) {
+        // Record single temperature
+    }
+    
+    public void recordTemperature(double[] temps) {
+        // Record multiple temperatures
+        for (double temp : temps) {
+            recordTemperature(temp);
+        }
+    }
+}
+```
+
+**Example:**
+```java
+TemperatureMonitor monitor = new TemperatureMonitor();
+monitor.recordTemperature(25.5);  // Single value
+monitor.recordTemperature(new double[]{20.0, 22.0, 24.0});  // Array
+```
+
+---
+
+### 6. Static Methods for Utility Operations
+
+**What are Static Utility Methods?**
+Static methods can operate on arrays of objects without needing an instance.
+
+**How to use:**
+```java
+public class Inventory {
+    private double unitPrice;
+    private int quantity;
+    
+    public static double getTotalValue(Inventory[] products) {
+        double total = 0;
+        for (Inventory product : products) {
+            if (product != null) {
+                total += product.getTotalValue();
+            }
+        }
+        return total;
+    }
+    
+    public double getTotalValue() {
+        return unitPrice * quantity;
+    }
+}
+```
+
+**Example:**
+```java
+Inventory[] products = {
+    new Inventory("Item1", 10.0, 5),
+    new Inventory("Item2", 20.0, 3),
+    new Inventory("Item3", 15.0, 4)
+};
+double total = Inventory.getTotalValue(products);
+```
+
+---
+
+### 7. Finding Elements in Arrays
+
+**What is Finding Elements?**
+Searching through arrays to find specific items based on conditions.
+
+**How to use:**
+```java
+public class BookManager {
+    private Library[] books = new Library[100];
+    private int count = 0;
+    
+    public Library[] findOverdueBooks() {
+        Library[] overdue = new Library[count];
+        int overdueCount = 0;
+        
+        for (int i = 0; i < count; i++) {
+            if (books[i].isOverdue()) {
+                overdue[overdueCount] = books[i];
+                overdueCount++;
+            }
+        }
+        
+        // Return array with actual size
+        Library[] result = new Library[overdueCount];
+        for (int i = 0; i < overdueCount; i++) {
+            result[i] = overdue[i];
+        }
+        return result;
+    }
+}
+```
+
+**Example:**
+```java
+BookManager manager = new BookManager();
+// Add books...
+Library[] overdue = manager.findOverdueBooks();
+for (Library book : overdue) {
+    System.out.println(book.getBookInfo());
+}
+```
+
+---
+
+### 8. Working with String Arrays
+
+**What are String Arrays?**
+String arrays store multiple strings and are useful for names, categories, etc.
+
+**How to use:**
+```java
+public class Product {
+    private String[] categories = {"Electronics", "Clothing", "Food", "Books"};
+    
+    public boolean isValidCategory(String category) {
+        for (String cat : categories) {
+            if (cat.equals(category)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public String[] getCategories() {
+        return categories.clone();  // Return copy to prevent modification
+    }
+}
+```
+
+**Example:**
+```java
+Product product = new Product();
+if (product.isValidCategory("Electronics")) {
+    System.out.println("Valid category");
+}
+String[] allCategories = product.getCategories();
+```
+
+---
+
+### 9. Calculating Statistics from Arrays
+
+**What are Array Statistics?**
+Calculating averages, maximums, minimums, and other statistics from array data.
+
+**How to use:**
+```java
+public class Statistics {
+    public static double calculateAverage(double[] values) {
+        if (values.length == 0) return 0.0;
+        
+        double sum = 0;
+        for (double value : values) {
+            sum += value;
+        }
+        return sum / values.length;
+    }
+    
+    public static double findMaximum(double[] values) {
+        if (values.length == 0) return Double.MIN_VALUE;
+        
+        double max = values[0];
+        for (int i = 1; i < values.length; i++) {
+            if (values[i] > max) {
+                max = values[i];
+            }
+        }
+        return max;
+    }
+    
+    public static int findIndex(double[] values, double target) {
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] == target) {
+                return i;
+            }
+        }
+        return -1;  // Not found
+    }
+}
+```
+
+**Example:**
+```java
+double[] temperatures = {20.5, 22.0, 18.5, 25.0, 21.0};
+double avg = Statistics.calculateAverage(temperatures);
+double max = Statistics.findMaximum(temperatures);
+int index = Statistics.findIndex(temperatures, 25.0);
+```
+
+---
+
+### 10. Varargs in Methods
+
+**What are Varargs?**
+Variable-length arguments allow methods to accept any number of arguments of the same type.
+
+**How to use:**
+```java
+public class Calculator {
+    public void addMultipleLibraries(Library... libraries) {
+        for (Library lib : libraries) {
+            // Process each library
+            System.out.println("Added: " + lib.getBookTitle());
+        }
+    }
+    
+    public double calculateTotal(double... values) {
+        double sum = 0;
+        for (double value : values) {
+            sum += value;
+        }
+        return sum;
+    }
+}
+```
+
+**Example:**
+```java
+Calculator calc = new Calculator();
+calc.addMultipleLibraries(
+    new Library("Book1", "B001"),
+    new Library("Book2", "B002"),
+    new Library("Book3", "B003")
+);
+
+double total = calc.calculateTotal(10.5, 20.0, 15.5, 30.0);
+```
 
 ---
 
