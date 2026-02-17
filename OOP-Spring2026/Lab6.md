@@ -796,7 +796,7 @@ Create a `SystemManager` class that integrates and manages:
 
 ## Submission Guidelines
 
-1. Complete all progressive tasks (Task 1-7)
+1. Complete atleast 5 progressive tasks
 2. Ensure all code compiles without errors
 3. Include comments explaining your problem-solving approach
 4. Test all methods with different scenarios and edge cases
