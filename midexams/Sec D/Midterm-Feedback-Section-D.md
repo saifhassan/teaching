@@ -102,6 +102,14 @@ Marks use **lenient partial credit**. Graders **do not lower your mark only beca
 
 ---
 
+## Laraib Mughal
+
+**Mark: 7 / 15**
+
+**Feedback:** **`distanceTo`** not **`public`**; **`other.x` / `y`** instead of getters. **`contains`:** **`if (p!=null) return false;`** (bounds unreachable); **`p==null`** no **`return`**. **`HitTester`:** **`where`** (not **`Where`**); **`"inside " + name`**, **`"outside " + name`**. **`ExamMain`:** no **`main`**, class-body **`println`**; **`new HitTester("panle"+box)`** → use **`"Panel", box`**. Missing **`(5,18)+where`**, **`distanceTo(null)`**; **Does not compile.**
+
+---
+
 ## Maqsood Lutuf
 
 **Mark: 14 / 15**
