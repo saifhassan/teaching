@@ -106,7 +106,7 @@ Marks use **lenient partial credit**. Graders **do not lower your mark only beca
 
 **Mark: 7 / 15**
 
-**Feedback:** **`distanceTo`** not **`public`**; **`other.x` / `y`** instead of getters. **`contains`:** **`if (p!=null) return false;`** (bounds unreachable); **`p==null`** no **`return`**. **`HitTester`:** **`where`** (not **`Where`**); **`"inside " + name`**, **`"outside " + name`**. **`ExamMain`:** no **`main`**, class-body **`println`**; **`new HitTester("panle"+box)`** → use **`"Panel", box`**. Missing **`(5,18)+where`**, **`distanceTo(null)`**; **Does not compile.**
+**Feedback:** **`Point.distanceTo`** is not **`public`** and uses **`other.x`** / **`other.y`** instead of **`getX()`** / **`getY()`**. **`Box.contains`** starts with **`if (p != null) return false;`**, so the inclusive bounds check is **unreachable** ( **`javac`**: unreachable code) and the **`p == null`** path has **no `return`**. **`HitTester`** field **`ZoneName`** and method **`Where`** should match **`zoneName`** / **`where`**; return strings must be **`"inside " + zoneName`** and **`"outside " + zoneName`**, not **`"inside"+`** / **`"outside"+`**. **`ExamMain`** has **`System.out.println`** and **`new`** at **class body** level—there is **no `public static void main(String[] args)`**. **`new HitTester("panle" + box)`** is one **`String`** argument (**`"panle"`** typo, **`box.toString()`**), not **`new HitTester("Panel", box)`**. Demo stops after **`where`** for **`(15,18)`**: missing **`Point (5,18)`** + **`where`**, and **`println`** of **`distanceTo(null)`** from **`(15,18)`** (**`-1.0`**). Does not compile (**`Laraib Mughal/ExamMain.java`**).
 
 ---
 

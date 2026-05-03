@@ -645,3 +645,9 @@ Reference expectations for a fully correct solution: **`5.0`**, **`2`** (step 1)
 ---
 
 *End of Section B list.*
+
+
+
+in class on 21st april
+------------------------
+naeem, jahanzaib, nanjo, muhammad aslam, fatima raza, anam, inshra, sidra
