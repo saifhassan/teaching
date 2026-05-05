@@ -72,7 +72,7 @@ Marks use **lenient partial credit**. Graders **do not lower your mark only beca
 
 ## Hasaan Ahmed
 
-**Mark: 8 / 15**
+**Mark: 9 / 15**
 
 **Feedback:** Method is **`distance`** not **`distanceTo`**; formula uses **`pow(this.x - other.y, 2)`** for the second term (wrong). **`where`** uses commas: **`"Inside, "`** not **`"inside "`**. Program runs but API and strings do not match the sheet.
 
@@ -320,7 +320,7 @@ Marks use **lenient partial credit**. Graders **do not lower your mark only beca
 
 ## shahariyar haider
 
-**Mark: 9 / 15**
+**Mark: 12 / 15**
 
 **Feedback:** **`public class ExamMain`** must be in **`ExamMain.java`** (or remove **`public`**). **`distanceTO`** name vs **`distanceTo`**. **`contains`** uses **`p == null &&`** with **`getX()`** (wrong); **X** uses **`top+width`** instead of **`left+width`**. **`where`** mixes **`"Inside "`** and **`"outside "`** casing vs spec.
 

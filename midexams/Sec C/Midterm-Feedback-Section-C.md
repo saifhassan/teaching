@@ -153,7 +153,7 @@ Reference output for a fully correct program (six lines): **`true`**, **`7.5`**,
 
 ## Masroor Ahmed
 
-**Mark: 8 / 15**
+**Mark: 12 / 15**
 
 **Feedback:** **`public class ExamMain`** must be in **`ExamMain.java`**, not **`lab-023-25-0163.java`**. Java requires **filename = public class name**. **No class file** for grader to run.
 
@@ -201,7 +201,7 @@ Reference output for a fully correct program (six lines): **`true`**, **`7.5`**,
 
 ## Muhammad Mujeeb Narejo
 
-**Mark: 6 / 15**
+**Mark: 10 / 15**
 
 **Feedback:** **`public class void main(String[] args)`** is illegal (**`void`** cannot follow **`class`**). **EOF while parsing**—file/class structure broken. **No entry point.**
 
@@ -217,7 +217,7 @@ Reference output for a fully correct program (six lines): **`true`**, **`7.5`**,
 
 ## Muhammad Sajan
 
-**Mark: 6 / 15**
+**Mark: 10 / 15**
 
 **Feedback:** **Reached end of file while parsing** near line **96**—unclosed block, unfinished **`main`**, or truncated file. **Cannot execute.**
 
@@ -305,7 +305,7 @@ Reference output for a fully correct program (six lines): **`true`**, **`7.5`**,
 
 ## Shahzaib khattak
 
-**Mark: 8 / 15**
+**Mark: 11 / 15**
 
 **Feedback:** **`if (sku==null) {return null`** missing **`}`** / **`;`**. **`If`** capitalized—Java is case-sensitive. **`If sku.equals`** missing **`(`** around condition. **Basic syntax** failures.
 
@@ -377,7 +377,7 @@ Reference output for a fully correct program (six lines): **`true`**, **`7.5`**,
 
 ## awais ghani
 
-**Mark: 8 / 15**
+**Mark: 12 / 15**
 
 **Feedback:** **`public class ExamMain`** in **`mawais.java`**—must rename file to **`ExamMain.java`** or remove **`public`**. **1 error** stops **`javac`.**
 
